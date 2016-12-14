@@ -1,0 +1,6 @@
+
+mvn clean package
+
+mvn spring-boot:run
+
+http://localhost:8761/eureka

@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  spring-cloud-eureka-server:
+    image: springio/spring-cloud-eureka-server
+    restart: unless-stoped
+    ports:
+      - 8761:8761
+
+  spring-cloud-base:
+    image: springio/spring-cloud-base
+    restart: unless-stopped
+    depends_on:
+      - spring-cloud-eureka-server
+    ports:
+      - 8080:8080
