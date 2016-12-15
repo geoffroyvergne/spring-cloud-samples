@@ -9,3 +9,5 @@ mvn package docker:build
 docker run -p 8080:8080 -t springio/spring-cloud-base
 
 docker run -e "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n" -p 8080:8080 -p 5005:5005 -t springio/spring-cloud-base
+
+http://ryanjbaxter.com/2015/12/15/building-cloud-native-applications-with-spring-part-8/

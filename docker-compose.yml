@@ -12,5 +12,7 @@ services:
     restart: unless-stopped
     depends_on:
       - spring-cloud-eureka-server
+    links:
+      - spring-cloud-eureka-server
     ports:
       - 8080:8080
