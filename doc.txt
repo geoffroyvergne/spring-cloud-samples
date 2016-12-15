@@ -2,12 +2,25 @@ mvn clean package
 
 mvn spring-boot:run
 
-http://localhost:8080/index/test
+http://localhost:9098/index/test
 
 mvn package docker:build
 
-docker run -p 8080:8080 -t springio/spring-cloud-base
+docker run -p 9098:9098 -t springio/test-service
 
-docker run -e "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n" -p 8080:8080 -p 5005:5005 -t springio/spring-cloud-base
+docker run -e "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n" -p 9098:9098 -p 5005:5005 -t springio/test-service
 
 http://ryanjbaxter.com/2015/12/15/building-cloud-native-applications-with-spring-part-8/
+https://github.com/ExampleDriven/spring-boot-docker-example
+
+mvn clean install
+docker-compose up
+docker-compose scale test-service=2
+
+docker-compose stop debug-service
+
+http://192.168.56.20:8761/
+http://192.168.56.20:9098/index/test
+http://192.168.56.20:9090/api/test-service/index/host
+http://192.168.56.20:9090/api/debug-service/debug/echo
+http://192.168.56.20:9090/api/test-service/debug/echo

@@ -19,16 +19,18 @@
 	</properties>
 
 	<modules>
-		<module>spring-cloud-base</module>
-		<module>spring-cloud-eureka-server</module>
+		<module>eureka-server</module>
+		<module>zuul-server</module>
+		<module>test-service</module>
+		<module>debug-service</module>
 	</modules>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-netflix</artifactId>
-				<version>1.2.3.RELEASE</version>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Camden.SR3</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
