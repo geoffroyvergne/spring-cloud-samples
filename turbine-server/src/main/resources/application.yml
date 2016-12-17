@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: turbine-server
+
+server:
+  port: 5050
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka/
+
+turbine:
+  appConfig: debug-service,test-service
+  aggregator:
+    clusterConfig: CLUSTER

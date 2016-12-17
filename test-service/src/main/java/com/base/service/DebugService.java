@@ -10,17 +10,19 @@ import java.util.Map;
 
 @Service
 public class DebugService {
+
     @Autowired
     DebugClient debugClient;
 
-    @HystrixCommand(fallbackMethod = "getEchoReliable")
+    @HystrixCommand(fallbackMethod = "getDefaultEcho")
     public Map getEcho() {
+
         return debugClient.getEcho();
     }
 
-    public Map getEchoReliable() {
+    public Map getDefaultEcho() {
         Map result = new HashMap<String, String>();
-        result.put("message", "echo not aviable");
+        result.put("message", "echo not available");
 
         return result;
     }

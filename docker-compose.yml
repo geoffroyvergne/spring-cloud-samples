@@ -26,3 +26,17 @@ services:
      - eureka-server
     ports:
       - "9090:9090"
+
+  hystrix-dashboard:
+      image: springio/hystrix-dashboard
+      depends_on:
+       - eureka-server
+      ports:
+        - "7979:7979"
+
+  turbine-server:
+      image: springio/turbine-server
+      depends_on:
+       - eureka-server
+      ports:
+        - "5050:5050"

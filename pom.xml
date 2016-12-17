@@ -21,6 +21,8 @@
 	<modules>
 		<module>eureka-server</module>
 		<module>zuul-server</module>
+		<module>hystrix-dashboard</module>
+		<module>turbine-server</module>
 		<module>test-service</module>
 		<module>debug-service</module>
 	</modules>
