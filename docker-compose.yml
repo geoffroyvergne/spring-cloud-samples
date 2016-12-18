@@ -8,6 +8,7 @@ services:
     depends_on:
       - eureka-server
       - zuul-server
+      - sso-server
 
   debug-service:
     image: springio/debug-service

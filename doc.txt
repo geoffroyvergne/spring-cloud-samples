@@ -39,3 +39,14 @@ http://turbine-server:5050/turbine.stream?cluster=CLUSTER
 http://localhost:9090/hystrix.stream
 http://zuul-server:9090/hystrix.stream
 
+SSO :
+Access token :
+curl -X POST -kliu clientapp2:1234562 \
+    http://localhost:9090/api/sso-server/oauth/token \
+    -H "Accept: application/json" \
+    -d grant_type=password \
+    -d scope=read%20write \
+    -d client_id=clientapp2 \
+    -d client_secret=1234562 \
+    -d username=user \
+    -d password=user

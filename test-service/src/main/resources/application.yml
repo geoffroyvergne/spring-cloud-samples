@@ -16,3 +16,8 @@ eureka:
 spring:
   application:
     name: test-service
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://zuul-server:9000/api/auth/user
