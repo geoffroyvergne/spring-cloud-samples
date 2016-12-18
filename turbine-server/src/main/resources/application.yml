@@ -13,6 +13,10 @@ eureka:
       defaultZone: http://eureka-server:8761/eureka/
 
 turbine:
-  appConfig: debug-service,test-service
+  appConfig: test-service
   aggregator:
-    clusterConfig: CLUSTER
+    clusterConfig: TEST-SERVICE
+  InstanceMonitor:
+    eventStream:
+    skipLineLogic:
+    enabled: false

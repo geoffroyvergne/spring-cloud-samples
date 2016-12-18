@@ -7,12 +7,21 @@ services:
     restart: unless-stopped
     depends_on:
       - eureka-server
+      - zuul-server
 
   debug-service:
-      image: springio/debug-service
-      restart: unless-stopped
-      depends_on:
-        - eureka-server
+    image: springio/debug-service
+    restart: unless-stopped
+    depends_on:
+      - eureka-server
+      - zuul-server
+
+  sso-server:
+    image: springio/sso-server
+    restart: unless-stopped
+    depends_on:
+      - eureka-server
+      - zuul-server
 
   eureka-server:
     image: springio/eureka-server
