@@ -7,7 +7,6 @@ import org.springframework.cloud.netflix.turbine.EnableTurbine;
 import org.springframework.cloud.netflix.turbine.stream.EnableTurbineStream;
 
 @SpringBootApplication
-@EnableTurbine
 @EnableTurbineStream
 @EnableDiscoveryClient
 public class Application {

@@ -1,6 +1,8 @@
 spring:
   application:
     name: turbine-server
+  rabbitmq:
+    addresses: rabbit-mq-server:5672
 
 server:
   port: 5050
@@ -12,11 +14,3 @@ eureka:
     serviceUrl:
       defaultZone: http://eureka-server:8761/eureka/
 
-turbine:
-  appConfig: test-service
-  aggregator:
-    clusterConfig: TEST-SERVICE
-  InstanceMonitor:
-    eventStream:
-    skipLineLogic:
-    enabled: false

@@ -38,15 +38,25 @@ services:
       - "9090:9090"
 
   hystrix-dashboard:
-      image: springio/hystrix-dashboard
-      depends_on:
-       - eureka-server
-      ports:
-        - "7979:7979"
+    image: springio/hystrix-dashboard
+    depends_on:
+     - eureka-server
+    ports:
+      - "7979:7979"
 
   turbine-server:
-      image: springio/turbine-server
-      depends_on:
-       - eureka-server
-      ports:
-        - "5050:5050"
+    image: springio/turbine-server
+    depends_on:
+      - eureka-server
+      - rabbitmq
+    links:
+      - rabbitmq:rabbit-mq-server
+    ports:
+      - "5050:5050"
+
+  rabbitmq:
+    image: rabbitmq:3.5.3-management
+    expose:
+     - "5672"
+    ports:
+     - "5672:5672"
