@@ -39,7 +39,12 @@ http://turbine-server:5050/turbine.stream?cluster=CLUSTER
 http://localhost:9090/hystrix.stream
 http://zuul-server:9090/hystrix.stream
 
+
 SSO :
+curl http://192.168.56.20:9090/api/test-service/secured/test
+
+curl -li -H "Authorization: Bearer 69f25629-22d9-4616-8edf-824a7c159903" http://192.168.56.20:9090/api/test-service/secured/test
+
 Access token :
 curl -X POST -kliu clientapp2:1234562 \
     http://localhost:9090/api/sso-server/oauth/token \

@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  test-service:
+    image: springio/test-service
+    restart: unless-stopped
+    depends_on:
+      - eureka-server
+      - zuul-server
+      - sso-server
+
+  sso-server:
+    image: springio/sso-server
+    restart: unless-stopped
+    depends_on:
+      - eureka-server
+      - zuul-server
+
+  eureka-server:
+    image: springio/eureka-server
+    restart: unless-stoped
+    ports:
+      - "8761:8761"
+
+  zuul-server:
+    image: springio/zuul-server
+    depends_on:
+     - eureka-server
+    ports:
+      - "9090:9090"
