@@ -19,35 +19,20 @@ docker-compose scale test-service=2
 
 docker-compose stop debug-service
 
-http://192.168.56.20:7979/
-
-http://192.168.56.20:8761/
-http://localhost:8761/eureka/apps
-
-http://192.168.56.20:9098/index/test
-http://192.168.56.20:9090/api/test-service/index/host
-http://192.168.56.20:9090/api/debug-service/debug/echo
-http://192.168.56.20:9090/api/test-service/debug/echo
-
-http://localhost:7979/hystrix/monitor?stream=http%3A%2F%2Fhystrix-dashboard%3A7979%2Fturbine.stream%3Fcluster%3DSAMPLE-HYSTRIX-AGGREGATE
-
-http://localhost:7979/hystrix/monitor?stream=http%3A%2F%2Fzuul-server%3A9090%2Fhystrix.stream
-
-http://localhost:5050/turbine.stream?cluster=CLUSTER
-http://turbine-server:5050/turbine.stream?cluster=CLUSTER
-
-http://localhost:9090/hystrix.stream
-http://zuul-server:9090/hystrix.stream
-
+http://192.168.56.20:9000/
+http://192.168.56.20:9000/hystrix
+http://192.168.56.20:9000/api/debug-service/debug/echo
+http://192.168.56.20:9000/hystrix.stream
+http://192.168.56.20:9000/api/test-service/debug/echo
 
 SSO :
-curl http://192.168.56.20:9090/api/test-service/secured/test
+curl http://192.168.56.20:9000/api/test-service/secured/test
 
-curl -li -H "Authorization: Bearer 69f25629-22d9-4616-8edf-824a7c159903" http://192.168.56.20:9090/api/test-service/secured/test
+curl -li -H "Authorization: Bearer 2d0a74f3-f94b-4617-874b-14ead8bf874b" http://192.168.56.20:9000/api/test-service/secured/test
 
 Access token :
 curl -X POST -kliu clientapp2:1234562 \
-    http://localhost:9090/api/sso-server/oauth/token \
+    http://localhost:9000/api/sso-server/oauth/token \
     -H "Accept: application/json" \
     -d grant_type=password \
     -d scope=read%20write \

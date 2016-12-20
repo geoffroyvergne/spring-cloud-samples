@@ -26,7 +26,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
         // @formatter:off
         http
             .authorizeRequests()
-            .antMatchers("/employee/*").authenticated();
+            .antMatchers("/secured/*").authenticated();
         // @formatter:on
     }
 
