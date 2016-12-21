@@ -21,18 +21,21 @@ docker-compose stop debug-service
 
 http://192.168.56.20:9000/
 http://192.168.56.20:9000/hystrix
-http://192.168.56.20:9000/api/debug-service/debug/echo
+http://192.168.56.20:9000/api/debug/debug/echo
 http://192.168.56.20:9000/hystrix.stream
-http://192.168.56.20:9000/api/test-service/debug/echo
+http://192.168.56.20:9000/api/test/debug/echo
+http://192.168.56.20:9000/api/test/index/test
+
+http://192.168.56.20:9000/hystrix/monitor?stream=micro-service-server%3A9000%2Fhystrix.stream
 
 SSO :
-curl http://192.168.56.20:9000/api/test-service/secured/test
+curl http://192.168.56.20:9000/api/test/secured/test
 
-curl -li -H "Authorization: Bearer 2d0a74f3-f94b-4617-874b-14ead8bf874b" http://192.168.56.20:9000/api/test-service/secured/test
+curl -li -H "Authorization: Bearer b128b458-0f56-4519-8ce0-0a9a61d98b81" http://192.168.56.20:9000/api/test/secured/test
 
 Access token :
 curl -X POST -kliu clientapp2:1234562 \
-    http://localhost:9000/api/sso-server/oauth/token \
+    http://192.168.56.20:5050/oauth/token \
     -H "Accept: application/json" \
     -d grant_type=password \
     -d scope=read%20write \

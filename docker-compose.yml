@@ -2,27 +2,22 @@ version: '2'
 
 services:
 
-  debug-service:
-    image: springio/debug-service
-    restart: unless-stopped
-    depends_on:
-      - micro-service-server
-
   test-service:
     image: springio/test-service
     restart: unless-stopped
     depends_on:
       - micro-service-server
-      - sso-server
 
   sso-server:
     image: springio/sso-server
     restart: unless-stopped
-    depends_on:
-      - micro-service-server
+    ports:
+      - "5050:5050"
 
   micro-service-server:
     image: springio/micro-service-server
     restart: unless-stoped
+    depends_on:
+      - sso-server
     ports:
       - "9000:9000"

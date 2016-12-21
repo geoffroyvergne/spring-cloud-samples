@@ -26,7 +26,7 @@
 
 		<module>sso-server</module>
 		<module>test-service</module>
-		<module>debug-service</module>
+		<!--<module>debug-service</module>-->
 
 		<module>micro-service-server</module>
 	</modules>

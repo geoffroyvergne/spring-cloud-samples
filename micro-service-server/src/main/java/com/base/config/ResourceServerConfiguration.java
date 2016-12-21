@@ -1,6 +1,5 @@
 package com.base.config;
 
-import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
@@ -26,7 +25,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
         // @formatter:off
         http
             .authorizeRequests()
-            .antMatchers("/secured/*").authenticated();
+            .antMatchers("/api/**/secured/*").authenticated();
         // @formatter:on
     }
 
