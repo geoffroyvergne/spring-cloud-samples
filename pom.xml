@@ -24,11 +24,11 @@
 		<module>hystrix-dashboard</module>
 		<module>turbine-server</module>-->
 
-		<module>sso-server</module>
-		<module>test-service</module>
+		<!--<module>sso-server</module>
+		<module>test-service</module>-->
 		<!--<module>debug-service</module>-->
 
-		<module>micro-service-server</module>
+		<!--<module>micro-service-server</module>-->
 	</modules>
 
 	<dependencyManagement>
@@ -36,7 +36,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>Camden.SR3</version>
+				<version>Brooklyn.SR3</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>

@@ -12,6 +12,7 @@ docker run -e "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=5005,server=
 
 http://ryanjbaxter.com/2015/12/15/building-cloud-native-applications-with-spring-part-8/
 https://github.com/ExampleDriven/spring-boot-docker-example
+https://github.com/bijukunjummen/sample-spring-hystrix
 
 mvn clean install
 docker-compose up
@@ -19,23 +20,23 @@ docker-compose scale test-service=2
 
 docker-compose stop debug-service
 
-http://192.168.56.20:9000/
-http://192.168.56.20:9000/hystrix
-http://192.168.56.20:9000/api/debug/debug/echo
-http://192.168.56.20:9000/hystrix.stream
-http://192.168.56.20:9000/api/test/debug/echo
-http://192.168.56.20:9000/api/test/index/test
+http://localhost:9000/
+http://localhost:9000/hystrix
+http://localhost:9000/api/debug/debug/echo
+http://localhost:9000/hystrix.stream
+http://localhost:9000/api/test/debug/echo
+http://localhost:9000/api/test/index/test
 
-http://192.168.56.20:9000/hystrix/monitor?stream=micro-service-server%3A9000%2Fhystrix.stream
+http://localhost:9000/hystrix/monitor?stream=micro-service-server%3A9000%2Fhystrix.stream
 
 SSO :
-curl http://192.168.56.20:9000/api/test/secured/test
+curl http://localhost:9000/api/test/secured/test
 
-curl -li -H "Authorization: Bearer b128b458-0f56-4519-8ce0-0a9a61d98b81" http://192.168.56.20:9000/api/test/secured/test
+curl -li -H "Authorization: Bearer b128b458-0f56-4519-8ce0-0a9a61d98b81" http://localhost:9000/api/test/secured/test
 
 Access token :
 curl -X POST -kliu clientapp2:1234562 \
-    http://192.168.56.20:5050/oauth/token \
+    http://localhost:5050/oauth/token \
     -H "Accept: application/json" \
     -d grant_type=password \
     -d scope=read%20write \
