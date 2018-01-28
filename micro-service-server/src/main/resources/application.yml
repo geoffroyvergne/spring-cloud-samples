@@ -29,18 +29,3 @@ turbine:
     clusterConfig: TEST-SERVICE
     appConfig: TEST-SERVICE
 
-security:
-  oauth2:
-    resource:
-      user-info-uri: http://sso-server:5050/auth/user
-
-#security:
-#  oauth2:
-#    client:
-#      accessTokenUri: http://micro-service-server:9000/api/sso-server/auth/token
-#      userAuthorizationUri: http://micro-service-server:9000/api/sso-server/auth/authorize
-#      clientId: clientapp2
-#      clientSecret: 1234562
-#    resource:
-#      userInfoUri: http://micro-service-server:9000/api/sso-server/auth/user
-#      preferTokenInfo: false
