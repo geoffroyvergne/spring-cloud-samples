@@ -7,7 +7,6 @@
     <version>0.1.0</version>
 
     <parent>
-        <!-- Your own application should inherit from spring-boot-starter-parent -->
         <artifactId>spring-cloud-samples</artifactId>
         <groupId>com.base</groupId>
         <relativePath>../pom.xml</relativePath>
@@ -19,7 +18,6 @@
     </properties>
 
     <dependencies>
-
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -100,7 +98,6 @@
                     <imageName>${project.artifactId}</imageName>
                     <baseImage>openjdk:8-alpine</baseImage>
                     <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
-                    <!-- copy the service's jar file from target into the root directory of the image -->
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
